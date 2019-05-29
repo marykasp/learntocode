@@ -1,0 +1,158 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <link
+      href="https://fonts.googleapis.com/css?family=Crete+Round|Nunito:300,400,700&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.2/css/all.css" integrity="sha384-oS3vJWv+0UjzBfQzYUhtDYW+Pj2yciDJxpsK1OYPAYjqT085Qq/1cq5FLXAZQ7Ay" crossorigin="anonymous">
+    <!-- BOOTSTRAP CDN -->
+    <link
+      rel="stylesheet"
+      href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.1/css/bootstrap.min.css"
+      integrity="sha384-WskhaSGFgHYWDcbwN70/dfYBj47jz9qbsMId/iRN3ewGhXQFZCSftd1LZCfmhktB"
+      crossorigin="anonymous"
+    />
+    <!-- CUSTOM CSS STYLES  -->
+    <link rel="stylesheet" href="../css/prism.css">
+    <link rel="stylesheet" href="../css/style.css" />
+
+    <title>Mary Kasparian</title>
+  </head>
+  <body>
+    <!-- Navigation with responsive toggle -->
+    <nav class="navbar navbar-expand-sm navbar-light bg-light">
+      <div class="container">
+        <a class="navbar-brand" href="#">Mary<span class="logo">K.</span></a>
+        <button
+          class="navbar-toggler"
+          data-toggle="collapse"
+          data-target="#navbarNav"
+        >
+          <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarNav">
+          <ul class="navbar-nav nav-pills ml-auto">
+            <li class="nav-item">
+              <a class="nav-link active-state" href="../index.html">Home</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="../about.html">About</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="../learn.html">Learn</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="../contact.html">Contact</a>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </nav>
+
+  <!--BLOG HEADER  -->
+  <article>
+    <div class="container">
+      <header class="mt-5">
+        <aside class="text-muted">
+          <time datetime="2019-05-29" pubdate>May 30, 2019</time>
+        </aside>
+        <h2 class="mb-4">Prism.js Syntax</h2>
+      </header>
+      <p class="lead"><code>Prism</code> is a wonderful front-end syntax highlighter by <a href="http://lea.verou.me/projects/">Lea Verou.</a> It allows you to highlight the syntax of snippets in a blog to make teaching or showing code easier and more beautiful. Here is an example snippet of CSS code, so you can see what I am refering to.</p>
+
+      <pre><code class="language-css">
+        /* Basic root styling */
+        :root {
+          --primary-color: #d6735e;
+          --secondary-color: #427683;
+        }
+
+        body {
+          font-family: 'Nunito', sans-serif;
+          font-size: 18px;
+          font-weight: 300;
+        }
+
+        a {
+          text-decoration: none;
+          color: var(--primary-color);
+        }
+      </code></pre>
+      <p>Most syntax highlighters use Javascript to highlight the syntax of <code class="language-text">pre</code> and <code class="language-text">code</code> tags. There are a couple other options for javascript highlighting that include:</p>
+      <ul>
+        <li>Highlight.js</li>
+        <li>Google Prettify</li>
+      </ul>
+      <p>However, <code>Prism.js</code> is my preferred choice because its lightweight and there are many gorgeous highlighting themes to choose from. So in this article I'll cover what is necessary to embed snippets into your own blog or website using prism and also through embedding.</p>
+      <p>Not only are there other syntax highlighters you can use to accomplish this there is also an option of embedding the code which I will cover first.
+      <h3 id="#">
+        Embedding.
+        <span><a href="#">#</span></a>
+      </h3>
+      <p>The easiest option for syntax highlighting is embedding the code in the form of <a href="https://codepen.io/pen">Codepen pen</a>. Which requires making a Codepen account.</p>
+      <p>Codepen is very easy to use and is excellent for quick demos because it not only shows the code but also the result. The one big drawback with this method is that if you have to load multiple embed scripts throughout your site it can slow down the loading time. In addition, unlike <code>Prism.js</code>, Codepen does not allow you to change how the snippet looks and what colors it uses. It is only for front end web development, HTML, CSS, and Javascript. Doesn't allow to embed code in PHP, Ruby, Python like <code>Prism.js</code>.</p>
+
+      <h3 id="#">
+        Javascript Highlighing Code.
+        <span><a href="#">#</span></a>
+      </h3>
+      <p>As already mentioned the other option is using a Javascript library to automatically highlight your code. <code>Prism.js</code> is what I use for this blog, but most of the other options listed above are quite similar.</p>
+      <h4>Setting Up Prism</h4>
+      <p>First head over to the <a href="https://prismjs.com/download.html#themes=prism-tomorrow&languages=markup+css+clike+javascript">download page</a> and select your options:</p>
+      <ul>
+        <li>development or minified version</li>
+        <li>pick a theme (I use <span class="special">tommorrow night</span>)</li>
+        <li>coding languages to support (CSS, HTML, Javascript)</li>
+        <li>add on additional plugins</li>
+      </ul>
+      <p>When you have all your options selected, click the download buttons to grab both the CSS and JS files. Also all the Prism files are available as a <a href="https://cdnjs.com/libraries/prism">CDN</a>, to use if you don't want to download anything that is another option.</p>
+      <p>Using the CDN, link to the CSS in your <code class="language-html">head</code> tag</p>
+
+
+      <pre><code class="language-markup">&lt;link rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.5.0/themes/prism.min.css" &lt;/></code></pre>
+
+      <p>Add link to the JS before the closing body tag</p>
+
+      <pre><code class="language-markup">&lt;script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.5.0/prism.min.js" script&lt;/></code></pre>
+
+      <p>
+        Then all you have to do is wrap your desired code in pre and code tags with a class defining the language. You're defining the language and the <code class="language-text">pre</code> ensures that all your indentation will be preserved.</p>
+
+        <p>You can also override the styles set in the prism.css file. So you can change the font-size, font-family, change the border of the box, etc.</p>
+
+        <p>One thing to note that may be tricky when using Javascript highlighting is that in order to display HTML or PHP code some of the symbols must be escaped so that the browser doesn't try to parse the code.</p>
+
+        <h4>Conclusion</h4>
+        <p>
+          Hopefully this post helped teach you how to display beautiful code on your site that can be highly customizable. Of course both ways have limitations and advantages 
+        </p>
+    </div>
+
+
+  </article>
+
+  <script src="../js/prism.js">
+
+  </script>
+  <script
+    src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
+    integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"
+    crossorigin="anonymous"
+  ></script>
+  <script
+    src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js"
+    integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49"
+    crossorigin="anonymous"
+  ></script>
+  <script
+    src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.1/js/bootstrap.min.js"
+    integrity="sha384-smHYKdLADwkXOn1EmN1qk/HfnUcbVRZyYmZ4qpPea6sjB/pTJ0euyQp0Mk8ck+5T"
+    crossorigin="anonymous"
+  ></script>
+  </body>
+</html>
